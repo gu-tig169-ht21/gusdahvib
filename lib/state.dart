@@ -40,8 +40,8 @@ class MyState extends ChangeNotifier {
 
   int get filterBy => _filterBy;
   
-  Future getLista() async {
-    List<Player> list = await InternetFetcher.getPlayer();
+  Future getLista() async {                                              
+    List<Player> list = await InternetFetcher.getPlayer();  
     _list = list;
     notifyListeners();
   }
