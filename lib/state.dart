@@ -20,11 +20,12 @@ class Player extends ChangeNotifier {
 
 }
 
-static Player fromJson(Map<String, dynamic> json){
-  return Player(
-   id: json['id'],
-   message: json['title'],
-   isChecked: json['done'],
+  static Player fromJson(Map<String, dynamic> json){
+    return Player(
+     id: json['id'],
+     message: json['title'],
+     isChecked: json['done'],
+    
     );
   }
 }

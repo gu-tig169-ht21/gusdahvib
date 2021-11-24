@@ -16,26 +16,28 @@ class MainView extends StatelessWidget{
     return Scaffold(
       appBar: AppBar(
         title: Text('Man Utd Player list',
-            style: TextStyle(color: Colors.black87, fontSize: 24)),
-        actions: [
-          PopupMenuButton<int>(
-            icon: Icon(Icons.more_vert, color: Colors.white),
+        style: TextStyle(color: Colors.black87, fontSize: 24)),
+         actions: [
+          PopupMenuButton<int>(                                                 //En knapp man trycker på för att få upp ett filtreringsförslag
+            icon: Icon(Icons.more_vert, color: Colors.white),                    
             onSelected: (value) {
-            Provider.of<MyState>(context, listen: false).setFilterBy(value);
+            Provider.of<MyState>(context, listen: false).setFilterBy(value);           //Kopplat till MyState klassen som ligger i state.dart, 
             },
         
         itemBuilder: (context) => [
-              PopupMenuItem(child: Text('All players'), value: 0),
+              PopupMenuItem(child: Text('All players'), value: 0),                     //Ett item kopplat till PopupMenuButton i detta fallet en String som har ett värde
               PopupMenuItem(child: Text('Selected players'), value: 1),
               PopupMenuItem(child: Text('Non-selected players'), value: 2),
             ]
           ),
         ],
       ),
+     
       body: Consumer<MyState>(
       builder: (context, state, child) => 
-      PlayerList(_filterList(state.list, state.filterBy)),
+       PlayerList(_filterList(state.list, state.filterBy)),
       ),
+      
       floatingActionButton: FloatingActionButton(
       child: Icon(Icons.add),
       onPressed: () {
@@ -48,9 +50,9 @@ class MainView extends StatelessWidget{
     );
     
   }
-           List<Player> _filterList(list, filterBy){
+           List<Player> _filterList(list, filterBy){                              //Liten bit kod som gör att man kan filtrera de olika item i popupMenubutton
              if(filterBy == 0) return list;
-             if(filterBy == 1) 
+             if(filterBy == 1)  
              return list.where((item) => item.isChecked == true).toList();
              if(filterBy == 2)
              return list.where((item) => item.isChecked == false).toList();

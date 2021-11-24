@@ -1,6 +1,4 @@
 
-
-
 import 'package:flutter/material.dart';
 import 'package:my_first_app/main_view.dart';
 import './state.dart';
@@ -15,19 +13,20 @@ class SecondView extends StatelessWidget {
   
    String text = '';
    
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Add new Man UTD player'), actions: [
-        ElevatedButton(
-         child: Text('Save'),
-           onPressed: () {
-            text = textcontroller.text;
-            Provider.of<MyState>(context, listen: false).addText(Player(message: text));
-            textcontroller.clear();
-           },
-      ),
-      ]),
+   @override
+   Widget build(BuildContext context) {
+     return Scaffold(
+     appBar: AppBar(title: Text('Add new Man UTD player'), actions: [
+     ElevatedButton(
+     child: Text('Save'),
+     onPressed: () {
+     text = textcontroller.text;
+     Provider.of<MyState>(context, listen: false).addText(Player(message: text));
+     textcontroller.clear();
+    
+      },
+    ),
+ ]),
              
           
       body: Column(

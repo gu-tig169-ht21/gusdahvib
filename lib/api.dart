@@ -2,8 +2,8 @@ import 'dart:convert';
 import './state.dart';
 import 'package:http/http.dart' as http;
 
-const API_KEY = '0d8d9ad3-3880-4b3a-a63a-9b14338d18f6';
-const API_URL = 'https://todoapp-api-pyq5q.ondigitalocean.app';
+const API_KEY = '0d8d9ad3-3880-4b3a-a63a-9b14338d18f6';                //En variabel man kan använda istället för att skriva ut hela API-key
+const API_URL = 'https://todoapp-api-pyq5q.ondigitalocean.app';        //En variabel man kan använda istället för att skriva ut hela URL:n
 
 class InternetFetcher {
 
