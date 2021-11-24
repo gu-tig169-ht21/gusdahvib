@@ -28,7 +28,7 @@ import 'package:provider/provider.dart';
           Provider.of<MyState>(context, listen: false).whenChanged(player, value);
              
           }, ),
-          title: Text(player.message, style: TextStyle(fontSize: 20,)),
+          title: Text(player.message, style: TextStyle(fontSize: 20, decoration: player.isChecked? TextDecoration.lineThrough : null,)),
           trailing: IconButton(
             onPressed: () {
             Provider.of<MyState>(context, listen: false).removeText(player);
