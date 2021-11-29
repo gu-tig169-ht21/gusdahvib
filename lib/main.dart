@@ -5,6 +5,7 @@ import 'main_view.dart';
 import 'state.dart';
 void main() {
   var state = MyState();
+  state.getLista();
   runApp(
     ChangeNotifierProvider(create: (context) => state,
     child: MyApp(),
