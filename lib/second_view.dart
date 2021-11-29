@@ -16,17 +16,36 @@ class SecondView extends StatelessWidget {
    @override
    Widget build(BuildContext context) {
      return Scaffold(
-     appBar: AppBar(title: Text('Add new Man UTD player'), actions: [
+     appBar: AppBar(title: Text('Add new Man Utd player'), actions: [
      ElevatedButton(
      child: Text('Save'),
      onPressed: () {
-     text = textcontroller.text;
+       if (inputValidation(textcontroller.text) != true) {
+              var snackBar = const SnackBar(
+                content: Text(
+                  'Error! Missing text.',
+                  textAlign: TextAlign.center,
+                ),
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+     
+      } else {
+        text = textcontroller.text;
      Provider.of<MyState>(context, listen: false).addText(Player(message: text));
      textcontroller.clear();
-    
-      },
+      var snackBar = const SnackBar(
+                content: Text(
+                  'Player added',
+                  textAlign: TextAlign.center,
+                ),
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
+      }
+     }
     ),
  ]),
+     
              
           
       body: Column(
@@ -50,5 +69,15 @@ class SecondView extends StatelessWidget {
     );
   
 
+  }
+  bool inputValidation(inputText) {
+    String text = inputText;
+    RegExp upperCase = RegExp(r'[A-Z]');
+    RegExp lowerCase = RegExp(r'[a-z]');
+    if (text.contains(upperCase) || text.contains(lowerCase)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
