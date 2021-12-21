@@ -7,12 +7,17 @@ import 'package:provider/provider.dart';
 import './player_list.dart';
 
 
-class SecondView extends StatelessWidget {
+class SecondView extends StatefulWidget {
   
+  @override
+  State<SecondView> createState() => _SecondViewState();
+}
+
+class _SecondViewState extends State<SecondView> {
    final TextEditingController textcontroller = TextEditingController(); 
-  
+
    String text = '';
-   
+
    @override
    Widget build(BuildContext context) {
      return Scaffold(
@@ -70,6 +75,7 @@ class SecondView extends StatelessWidget {
   
 
   }
+
   bool inputValidation(inputText) {
     String text = inputText;
     RegExp upperCase = RegExp(r'[A-Z]');

@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import './api.dart';
 import 'dart:convert';
 
-class Player extends ChangeNotifier {
+class Player {
   String message;
   bool isChecked;
   String id;
